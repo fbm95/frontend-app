@@ -11,6 +11,7 @@ export class VotingService {
 
   protocol = 'http://';
   ip = '172.17.8.101';
+  // ip = '127.0.0.1';
   port = '1221';
   path = '/vote';
 

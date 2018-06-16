@@ -10,7 +10,8 @@ import 'rxjs/add/operator/finally';
 export class ResultsService {
 
   protocol = 'http://';
-  ip = '127.0.0.1';
+  ip = '172.17.8.101';
+  // ip = '127.0.0.1';
   port = '1222';
   path = '/results';
 
