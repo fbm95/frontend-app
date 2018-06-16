@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {VotingService} from './voting.service';
 
 @Component({
@@ -10,7 +10,9 @@ export class VotingComponent implements OnInit {
 
   options: any;
 
-  constructor(public votingService: VotingService) { }
+  rerender = false;
+
+  constructor (private cdRef:ChangeDetectorRef, public votingService: VotingService) { }
 
   ngOnInit() {
     this.getVoteOptions();
@@ -31,7 +33,14 @@ export class VotingComponent implements OnInit {
         // console.log(data);
       }
     );
-    this.getVoteOptions();
+
+    this.doRerender();
+  }
+
+  doRerender() {
+    this.rerender = true;
+    this.cdRef.detectChanges();
+    this.rerender = false;
   }
 
 }
