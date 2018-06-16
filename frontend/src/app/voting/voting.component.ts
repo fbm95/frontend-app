@@ -1,5 +1,6 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {VotingService} from './voting.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-voting',
@@ -12,7 +13,7 @@ export class VotingComponent implements OnInit {
 
   rerender = false;
 
-  constructor (private cdRef:ChangeDetectorRef, public votingService: VotingService) { }
+  constructor(public votingService: VotingService, private router: Router) { }
 
   ngOnInit() {
     this.getVoteOptions();
@@ -34,13 +35,7 @@ export class VotingComponent implements OnInit {
       }
     );
 
-    this.doRerender();
-  }
-
-  doRerender() {
-    this.rerender = true;
-    this.cdRef.detectChanges();
-    this.rerender = false;
+    this.router.navigateByUrl('/');
   }
 
 }
