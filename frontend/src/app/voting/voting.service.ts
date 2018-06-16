@@ -10,7 +10,7 @@ import 'rxjs/add/operator/finally';
 export class VotingService {
 
   protocol = 'http://';
-  ip = '127.0.0.1';
+  ip = '172.17.8.101';
   port = '1221';
   path = '/vote';
 
