@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {VotingService} from './voting.service';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-voting',
@@ -13,7 +12,7 @@ export class VotingComponent implements OnInit {
 
   rerender = false;
 
-  constructor(public votingService: VotingService, private router: Router) { }
+  constructor(public votingService: VotingService) { }
 
   ngOnInit() {
     this.getVoteOptions();
@@ -35,7 +34,7 @@ export class VotingComponent implements OnInit {
       }
     );
 
-    this.router.navigateByUrl('/');
+    window.location.replace('/');
   }
 
 }
