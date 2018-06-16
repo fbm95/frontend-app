@@ -1,0 +1,16 @@
+---
+version: "3"
+
+services:
+  webapp:
+    image: fbm95/frontend_img
+    ports:
+      - 8081:80
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 2
+      restart_policy:
+        condition: on-failure
+
+# docker run -d --name results -p 1221:1221 results_img
