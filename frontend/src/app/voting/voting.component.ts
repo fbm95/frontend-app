@@ -10,8 +10,6 @@ export class VotingComponent implements OnInit {
 
   options: any;
 
-  rerender = false;
-
   constructor(public votingService: VotingService) { }
 
   ngOnInit() {
@@ -30,11 +28,11 @@ export class VotingComponent implements OnInit {
   vote(option: string) {
     this.votingService.postVote(option).subscribe(
       data => {
-        // console.log(data);
+        console.log(data);
+        this.getVoteOptions();
       }
     );
 
-    window.location.replace('/');
   }
 
 }
